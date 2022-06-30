@@ -21,7 +21,7 @@ func (c *Circle) ToPolygon(edges int) (Polygon, error) {
 	}
 
 	// Make our polygon (with our centre as the first point):
-	polygon := Polygon{c.Centre}
+	polygon := Polygon{}
 	distanceByEarth := geometry.DistanceByRadius(float64(c.Radius))
 	latAngle := geometry.Radians(float64(c.Centre.Latitude))
 	lonAngle := geometry.Radians(float64(c.Centre.Longitude))
@@ -46,6 +46,14 @@ func (c *Circle) ToPolygon(edges int) (Polygon, error) {
 			Latitude:  float32(geometry.Degrees(latitude)),
 			Longitude: float32(geometry.Degrees(longitude)),
 		})
+	}
+
+	// Make sure the last point matches up with the first:
+	polygon = append(polygon, polygon[0])
+
+	// Make sure we ended up with a valid polygon:
+	if err := polygon.Validate(); err != nil {
+		return nil, err
 	}
 
 	return polygon, nil
