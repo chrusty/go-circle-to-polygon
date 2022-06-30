@@ -16,6 +16,9 @@ The library offers some basic geometry components:
 Each of these structures offers a `Validate()` method which returns an error if the data doesn't make sense (lat/lon out of bounds, or an open polygon).
 
 
+A working example can be found under [cmd/circle](cmd/circle/main.go). This renders a custom circle as GeoJSON, which you can then load into https://geojson.io to view!
+
+
 ### Make a circle
 
 ```go
