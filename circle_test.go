@@ -17,8 +17,8 @@ func TestCircle(t *testing.T) {
 		Radius: 2000,
 	}
 
-	// Convert it to a Polygon with 12 edges:
-	polygon, err := circle.ToPolygon(12)
+	// Convert it to a Polygon with 6 edges:
+	polygon, err := circle.ToPolygon(6)
 	assert.NoError(t, err)
-	assert.Len(t, polygon, 12)
+	assert.Len(t, polygon, 7)
 }
