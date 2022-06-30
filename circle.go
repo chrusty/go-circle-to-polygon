@@ -58,3 +58,8 @@ func (c *Circle) ToPolygon(edges int) (Polygon, error) {
 
 	return polygon, nil
 }
+
+// Validate that our Circle makes sense:
+func (c *Circle) Validate() error {
+	return c.Centre.Validate()
+}
