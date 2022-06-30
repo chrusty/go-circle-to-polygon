@@ -32,7 +32,7 @@ A working example can be found under [cmd/circle](cmd/circle/main.go). This rend
 ```
 
 
-### Concert a circle to a polygon with 32 edges:
+### Convert a circle to a polygon with 32 edges:
 
 ```go
     polygon, err := circle.ToPolygon(32)
