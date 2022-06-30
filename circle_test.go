@@ -14,11 +14,16 @@ func TestCircle(t *testing.T) {
 			Latitude:  -41.270634,
 			Longitude: 173.283966,
 		},
-		Radius: 2000,
+		Radius: 20000,
 	}
 
-	// Convert it to a Polygon with 6 edges:
-	polygon, err := circle.ToPolygon(6)
+	// Convert it to a Polygon with 60 edges:
+	polygon, err := circle.ToPolygon(60)
 	assert.NoError(t, err)
-	assert.Len(t, polygon, 7)
+	assert.Len(t, polygon, 61)
+
+	// Render as GeoJSON:
+	geoJSON, err := polygon.GeoJSON()
+	assert.NoError(t, err)
+	assert.Len(t, geoJSON, 2453)
 }
