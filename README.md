@@ -19,27 +19,37 @@ Each of these structures offers a `Validate()` method which returns an error if 
 ### Make a circle
 
 ```go
-	circle := &circletopolygon.Circle{
-		Centre: &circletopolygon.Point{
-			Latitude:  -41.270634,
-			Longitude: 173.283966,
-		},
-		Radius: 20000, // 20km
-	}
+    circle := &circletopolygon.Circle{
+        Centre: &circletopolygon.Point{
+            Latitude:  -41.270634,
+            Longitude: 173.283966,
+        },
+        Radius: 20000, // 20km
+    }
 ```
 
 
 ### Concert a circle to a polygon with 32 edges:
 
 ```go
-	polygon, err := circle.ToPolygon(32)
+    polygon, err := circle.ToPolygon(32)
     if err != nil {
         panic(err)
     }
 ```
 
 
-### Do things with the polygon:
+### Render a polygon as GeoJSON:
+
+```go
+    geoJSON, err := polygon.GeoJSON()
+    if err != nil {
+        panic(err)
+    }
+```
+
+
+### Do other things with the polygon:
 
 ```go
     for _, point := range polygon {
