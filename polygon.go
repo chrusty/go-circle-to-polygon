@@ -15,6 +15,11 @@ type Polygon []*Point
 // GeoJSON renders a polygon as a GeoJSON geometry:
 func (p Polygon) GeoJSON() ([]byte, error) {
 
+	// Validate first:
+	if err := p.Validate(); err != nil {
+		return nil, err
+	}
+
 	// Build up a slice of points for the GeoJSON library:
 	geometryPoints := [][]float64{}
 	for _, point := range p {
