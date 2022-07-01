@@ -4,6 +4,8 @@ Circle-to-Polygon
 A Go library to convert a circle to a polygon (port of https://github.com/gabzim/circle-to-polygon).
 
 
+![Example](example.png "Example circle (20km radius with 33 edges)")
+
 Usage
 -----
 
